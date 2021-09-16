@@ -10,6 +10,7 @@ __Masih Belum Tersedia__
 ## Credits
 - [Tabler](https://tabler.io/ "Tabler")
 - [Laravel 8](https://laravel.com/docs/8.x "Laravel 8")
+- [Laravel Sweet Alert](https://realrashid.github.io/sweet-alert/ "Laravel Sweet Alert")
 
 ## Contribute
 You can read this article : [Fork a Repo](https://help.github.com/en/articles/fork-a-repo "Fork a Repo")

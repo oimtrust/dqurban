@@ -30,5 +30,6 @@
     <script src="{{ asset('tabler/dist/js/tabler.min.js') }}"></script>
 
     @yield('javascript')
+    @include('sweetalert::alert')
 </body>
 </html>
