@@ -7,8 +7,8 @@
       <h2 class="card-title text-center mb-4">Buat akun baru</h2>
       <div class="mb-3">
         <label class="form-label">Nama</label>
-        <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" required placeholder="Masukkan nama">
-        @error('name')
+        <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" name="nama" placeholder="Masukkan nama">
+        @error('nama')
             <div class="invalid-feedback" role="alert">
                 {{ $message }}
             </div>
@@ -16,8 +16,17 @@
       </div>
       <div class="mb-3">
         <label class="form-label">Email</label>
-        <input type="email" id="email" name="email" required class="form-control @error('email') is-invalid @enderror" placeholder="Masukkan email">
+        <input type="email" id="email" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="Masukkan email">
         @error('email')
+            <div class="invalid-feedback" role="alert">
+                {{ $message }}
+            </div>
+        @enderror
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Username</label>
+        <input type="text" class="form-control @error('username') is-invalid @enderror" id="username" name="username" placeholder="Masukkan username">
+        @error('username')
             <div class="invalid-feedback" role="alert">
                 {{ $message }}
             </div>

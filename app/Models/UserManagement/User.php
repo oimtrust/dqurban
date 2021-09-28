@@ -2,15 +2,18 @@
 
 namespace App\Models\UserManagement;
 
+use App\Traits\Uuid;
+use App\Traits\Audit;
+use Laravel\Sanctum\HasApiTokens;
+use App\Models\UserManagement\Role;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, Uuid, Audit;
 
     /**
      * The attributes that are mass assignable.
@@ -20,7 +23,9 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'username',
         'password',
+        'phone',
     ];
 
     /**
@@ -41,4 +46,24 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * The roles that belong to the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class, 'role_user', 'user_id', 'role_id');
+    }
+
+    public function inRole($role)
+    {
+        foreach ($this->roles() as $userRole) {
+            if ($userRole->slug == $role) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
