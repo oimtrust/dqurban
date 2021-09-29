@@ -3,13 +3,12 @@
 @section('content')
 <form class="card card-md" method="POST" action="{{ route('login') }}" autocomplete="off">
     @csrf
-
     <div class="card-body">
       <h2 class="card-title text-center mb-4">Masuk ke akun anda</h2>
       <div class="mb-3">
-        <label class="form-label">Email</label>
-        <input type="email" id="email" name="email" required class="form-control @error('email') is-invalid @enderror" placeholder="Masukkan email">
-        @error('email')
+        <label class="form-label">Username</label>
+        <input type="text" id="username" name="username" class="form-control @error('username') is-invalid @enderror" placeholder="Masukkan username">
+        @error('username')
             <div class="invalid-feedback" role="alert">
                 {{ $message }}
             </div>
