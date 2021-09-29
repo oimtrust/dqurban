@@ -3,11 +3,11 @@
 @section('app')
     <div class="wrapper">
         <header class="navbar navbar-expand-md navbar-light d-print-none">
-            @include('partials.header')
+            @include('partials.dashboard.header')
         </header>
 
         <div class="navbar-expand-md">
-            @include('partials.navbar')
+            @include('partials.dashboard.navbar')
         </div>
 
         <div class="page-wrapper">
