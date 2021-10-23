@@ -27,8 +27,8 @@ class AuthController extends Controller
         $user->password = Hash::make($request->password);
         $user->save();
 
-        $user->roles()->attach(Role::findBySlug('superadmin')->id);
-        Alert::success('Berhasil', 'Pendaftaran akun Superadmin berhasil');
+        $user->roles()->attach(Role::findBySlug('admin')->id);
+        Alert::success('Berhasil', 'Pendaftaran akun Admin berhasil');
 
         return redirect()->route('login');
     }
