@@ -12,6 +12,7 @@
 
         <div class="page-wrapper">
             <div class="container-xl">
+                @yield('page-title')
             </div>
             <div class="page-body">
                 @yield('content')
