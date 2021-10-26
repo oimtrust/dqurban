@@ -17,7 +17,7 @@ class UserController extends Controller
     public function index(Request $request)
     {
         $pagination = 20;
-        $users = User::orderBy('updated_at' , 'DESC')->paginate($pagination);
+        $users = User::orderBy('updated_at', 'DESC')->paginate($pagination);
         return view('users.index', compact('users'))->with('item', ($request->input('page', 1) -1) * $pagination);
     }
 
