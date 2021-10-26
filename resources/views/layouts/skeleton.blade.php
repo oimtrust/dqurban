@@ -27,6 +27,7 @@
     @yield('app')
 
     <!-- Scripts -->
+    <script src="{{ asset('tabler/dist/libs/choices.js/choices.js') }}"></script>
     <script src="{{ asset('tabler/dist/js/tabler.min.js') }}"></script>
 
     @yield('javascript')

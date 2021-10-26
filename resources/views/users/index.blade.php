@@ -55,7 +55,21 @@
                             <td>{{ $user->username }}</td>
                             <td>{{ $user->phone }}</td>
                             <td class="text-end">
-                                <div class="btn-list flex-nowrap">
+                                  <div class="btn-list flex-nowrap">
+                                    <div class="col-6 col-sm-4 col-md-2 col-xl-auto mb-3">
+                                      <a href="{{ route('user.show', $user->id) }}" class="btn btn-info w-100 btn-icon" aria-label="Lihat" data-bs-toggle="tooltip" data-bs-placement="top" title="Lihat">
+                                          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-eyeglass" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                              <path d="M8 4h-2l-3 10"></path>
+                                              <path d="M16 4h2l3 10"></path>
+                                              <line x1="10" y1="16" x2="14" y2="16"></line>
+                                              <path d="M21 16.5a3.5 3.5 0 0 1 -7 0v-2.5h7v2.5"></path>
+                                              <path d="M10 16.5a3.5 3.5 0 0 1 -7 0v-2.5h7v2.5"></path>
+                                          </svg>
+                                        </a>
+                                  </div>
+
+                                  @if ($user->username != 'oimtrust')    
                                   <div class="col-6 col-sm-4 col-md-2 col-xl-auto mb-3">
                                       <a href="{{ route('user.edit', $user->id) }}" class="btn btn-success w-100 btn-icon" aria-label="Ubah" data-bs-toggle="tooltip" data-bs-placement="top" title="Ubah">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -66,18 +80,7 @@
                                          </svg>
                                       </a>
                                   </div>    
-                                  <div class="col-6 col-sm-4 col-md-2 col-xl-auto mb-3">
-                                      <a href="{{ route('user.show', $user->id) }}" class="btn btn-info w-100 btn-icon" aria-label="Lihat" data-bs-toggle="tooltip" data-bs-placement="top" title="Lihat">
-                                          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-eyeglass" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                              <path d="M8 4h-2l-3 10"></path>
-                                              <path d="M16 4h2l3 10"></path>
-                                              <line x1="10" y1="16" x2="14" y2="16"></line>
-                                              <path d="M21 16.5a3.5 3.5 0 0 1 -7 0v-2.5h7v2.5"></path>
-                                              <path d="M10 16.5a3.5 3.5 0 0 1 -7 0v-2.5h7v2.5"></path>
-                                           </svg>
-                                        </a>
-                                  </div>
+                                  
                                   <div class="col-6 col-sm-4 col-md-2 col-xl-auto mb-3">
                                       <a href="#" class="btn btn-danger w-100 btn-icon" aria-label="Hapus" data-bs-toggle="modal" data-bs-target="#delete-{{ $user->id }}">
                                           <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -90,6 +93,7 @@
                                            </svg>
                                       </a>
                                   </div>
+                                  @endif
                                 </div>
                             </td>
                           </tr>
