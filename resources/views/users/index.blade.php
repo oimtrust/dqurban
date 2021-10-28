@@ -57,7 +57,7 @@
                             <td class="text-end">
                                   <div class="btn-list flex-nowrap">
                                     <div class="col-6 col-sm-4 col-md-2 col-xl-auto mb-3">
-                                      <a href="{{ route('user.show', $user->id) }}" class="btn btn-info w-100 btn-icon" aria-label="Lihat" data-bs-toggle="tooltip" data-bs-placement="top" title="Lihat">
+                                      <a href="{{ route('user.show', $user->id) }}" class="btn btn-info btn-icon" aria-label="Lihat" data-bs-toggle="tooltip" data-bs-placement="top" title="Lihat">
                                           <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-eyeglass" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                               <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                               <path d="M8 4h-2l-3 10"></path>
@@ -71,7 +71,7 @@
 
                                   @if ($user->username != 'oimtrust')    
                                   <div class="col-6 col-sm-4 col-md-2 col-xl-auto mb-3">
-                                      <a href="{{ route('user.edit', $user->id) }}" class="btn btn-success w-100 btn-icon" aria-label="Ubah" data-bs-toggle="tooltip" data-bs-placement="top" title="Ubah">
+                                      <a href="{{ route('user.edit', $user->id) }}" class="btn btn-success btn-icon" aria-label="Ubah" data-bs-toggle="tooltip" data-bs-placement="top" title="Ubah">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                             <path d="M9 7h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3"></path>
@@ -82,7 +82,7 @@
                                   </div>    
                                   
                                   <div class="col-6 col-sm-4 col-md-2 col-xl-auto mb-3">
-                                      <a href="#" class="btn btn-danger w-100 btn-icon" aria-label="Hapus" data-bs-toggle="modal" data-bs-target="#delete-{{ $user->id }}">
+                                      <a href="#" class="btn btn-danger btn-icon" aria-label="Hapus" data-bs-toggle="modal" data-bs-target="#delete-{{ $user->id }}">
                                           <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                               <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                               <line x1="4" y1="7" x2="20" y2="7"></line>
