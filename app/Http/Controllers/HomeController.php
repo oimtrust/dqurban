@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\MoneyManagement\Income;
+use App\Models\MoneyManagement\Expense;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $total_income = Income::sum('amount');
+        $total_expense = Expense::sum('amount');
+        $total = $total_income - $total_expense;
+        return view('home', compact('total'));
     }
 }
