@@ -28,10 +28,10 @@ You can read this article : [Fork a Repo](https://help.github.com/en/articles/fo
 - Run the command `composer install` to install all the dependencies
 - Run the command `php artisan key:generate` to generate the new key
 - Run the command `php artisan migrate`
-- Run the command `php artisan storage:link`
+- Run the command `php artisan db:seed`
 - Run the command `php artisan serve`. This will open dQurban app in your browser
 - Make your valuable contribution
 - Submit a pull request.
 
 ## License
-The dQurban App is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+The dQurban App is open-source software licensed under the [MIT license](https://github.com/oimtrust/dqurban/blob/develop/LICENSE).

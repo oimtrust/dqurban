@@ -19,7 +19,7 @@
             All rights reserved.
           </li>
           <li class="list-inline-item">
-            <a href="#" class="link-secondary" rel="noopener">v1.0.0-beta1</a>
+            <a href="#" class="link-secondary" rel="noopener">v1.0.0</a>
           </li>
         </ul>
       </div>

@@ -6,14 +6,16 @@ use App\Traits\Uuid;
 use App\Traits\Audit;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\UserManagement\Role;
+use App\Models\MoneyManagement\Income;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable, Uuid, Audit;
+    use HasApiTokens, HasFactory, Notifiable, Uuid, Audit, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -26,6 +28,8 @@ class User extends Authenticatable
         'username',
         'password',
         'phone',
+        'created_by',
+        'updated_by'
     ];
 
     /**
@@ -47,6 +51,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    protected $dates = ['created_at', 'updated_at', 'deleted_at'];
+
     /**
      * The roles that belong to the User
      *
@@ -65,5 +71,15 @@ class User extends Authenticatable
             }
         }
         return false;
+    }
+
+    /**
+     * Get all of the incomes for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function incomes(): HasMany
+    {
+        return $this->hasMany(Income::class, 'user_id');
     }
 }

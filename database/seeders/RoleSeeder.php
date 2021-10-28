@@ -18,11 +18,6 @@ class RoleSeeder extends Seeder
         DB::table('roles')->insert([
             [
                 'id'    => Generator::uuid4()->toString(),
-                'name'  => 'Superadmin',
-                'slug'  => 'superadmin'
-            ],
-            [
-                'id'    => Generator::uuid4()->toString(),
                 'name'  => 'Admin',
                 'slug'  => 'admin'
             ],
