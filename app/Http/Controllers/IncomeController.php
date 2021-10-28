@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\UserManagement\User;
 use App\Models\MoneyManagement\Income;
+use App\Models\MoneyManagement\Category;
 
 class IncomeController extends Controller
 {
@@ -26,7 +28,9 @@ class IncomeController extends Controller
      */
     public function create()
     {
-        //
+        $users = User::pluck('name', 'id');
+        $categories = Category::where('type', 'income')->pluck('name', 'id');
+        return view('incomes.create', compact('users', 'categories'));
     }
 
     /**
@@ -37,7 +41,22 @@ class IncomeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nama_penabung' => 'required',
+            'kategori' => 'required',
+            'tanggal_menabung' => 'required',
+            'jumlah' => 'required|numeric'
+        ]);
+
+        $income = new Income();
+        $income->user_id = $request->get('nama_penabung');
+        $income->category_id = $request->get('kategori');
+        $income->income_date = date('Y-m-d', strtotime($request->get('tanggal_menabung')));
+        $income->amount = $request->get('jumlah');
+        $income->note = $request->get('catatan');
+        $income->save();
+
+        return redirect()->route('income.create')->with('success', 'Setoran tabungan berhasil ditambahkan');
     }
 
     /**
@@ -46,9 +65,9 @@ class IncomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Income $income)
     {
-        //
+        return view('incomes.show', compact('income'));
     }
 
     /**
@@ -57,9 +76,11 @@ class IncomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Income $income)
     {
-        //
+        $users = User::pluck('name', 'id');
+        $categories = Category::where('type', 'income')->pluck('name', 'id');
+        return view('incomes.edit', compact('income', 'users', 'categories'));
     }
 
     /**
@@ -71,17 +92,21 @@ class IncomeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-    }
+        $request->validate([
+            'nama_penabung' => 'required',
+            'kategori' => 'required',
+            'tanggal_menabung' => 'required',
+            'jumlah' => 'required|numeric'
+        ]);
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        $income = Income::find($id);
+        $income->user_id = $request->get('nama_penabung');
+        $income->category_id = $request->get('kategori');
+        $income->income_date = date('Y-m-d', strtotime($request->get('tanggal_menabung')));
+        $income->amount = $request->get('jumlah');
+        $income->note = $request->get('catatan');
+        $income->save();
+
+        return redirect()->route('income.edit', $income->id)->with('success', 'Setoran tabungan berhasil diubah');
     }
 }
