@@ -34,4 +34,4 @@ You can read this article : [Fork a Repo](https://help.github.com/en/articles/fo
 - Submit a pull request.
 
 ## License
-The dQurban App is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+The dQurban App is open-source software licensed under the [MIT license](https://github.com/oimtrust/dqurban/blob/develop/LICENSE).
