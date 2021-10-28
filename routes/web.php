@@ -4,6 +4,7 @@ use App\Models\UserManagement\User;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\IncomeController;
 use App\Http\Controllers\CategoryController;
 
 /*
@@ -39,4 +40,5 @@ Route::middleware('auth')->group(function() {
 
     Route::resource('user', UserController::class);
     Route::resource('category', CategoryController::class);
+    Route::resource('income', IncomeController::class);
 });
