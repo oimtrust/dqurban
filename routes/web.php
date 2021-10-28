@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\IncomeController;
 use App\Http\Controllers\ExpenseController;
+use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\CategoryController;
 
 /*
@@ -19,9 +20,8 @@ use App\Http\Controllers\CategoryController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
+Route::get('my-savings', [WelcomeController::class, 'mySaving'])->name('my-saving');
 
 Route::get('/login', function() {
     $users = User::all();
