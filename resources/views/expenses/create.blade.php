@@ -100,6 +100,7 @@ $(document).ready(function() {
 
 $('#tanggal_transaksi').datepicker({
     format: 'yyyy-m-d',
+    endDate: '0d',
     todayHighlight: true
 });
 </script>

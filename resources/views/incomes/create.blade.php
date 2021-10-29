@@ -115,7 +115,7 @@ $(document).ready(function() {
 
 $('#tanggal_menabung').datepicker({
     format: 'yyyy-m-d',
-    startDate: '-7d',
+    endDate: '0d',
     todayHighlight: true
 });
 </script>
